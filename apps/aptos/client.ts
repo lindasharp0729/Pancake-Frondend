@@ -20,7 +20,6 @@ const nodeReal = {
     testnet: NODE_REAL_API_TESTNET,
   }),
 }
-
 export const client = createClient({
   connectors: [
     new PetraConnector({ chains }),
