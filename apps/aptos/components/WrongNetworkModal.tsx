@@ -10,12 +10,10 @@ const StyledLink = styled(Link)`
     text-decoration: initial;
   }
 `
-
 export const WrongNetworkModal: React.FC = () => {
   const { t } = useTranslation()
   const { isWrongNetwork } = useActiveNetwork()
   const { disconnect } = useDisconnect()
-
   return (
     <ModalV2 isOpen={isWrongNetwork}>
       <Modal title={t('Wrong Network')} hideCloseButton>

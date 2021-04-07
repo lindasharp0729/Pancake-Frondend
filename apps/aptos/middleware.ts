@@ -7,7 +7,6 @@ export async function middleware(req: NextRequest) {
   if (shouldGeoBlock(req.geo)) {
     return NextResponse.redirect(new URL('/451', req.url))
   }
-
   return res
 }
 export const config = {
