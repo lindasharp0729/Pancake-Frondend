@@ -9,27 +9,22 @@ import useTotalSupply from 'hooks/useTotalSupply'
 import { useAtom, useAtomValue } from 'jotai'
 import { atomWithReducer } from 'jotai/utils'
 import { useCallback, useMemo } from 'react'
-
 export enum Field {
   CURRENCY_A = 'currencyA',
   CURRENCY_B = 'currencyB',
 }
-
 const typeInput = createAction<{ field: Field; typedValue: string; noLiquidity: boolean }>('mint/typeInputMint')
 const resetMintState = createAction<void>('mint/resetMintState')
-
 export interface MintState {
   readonly independentField: Field
   readonly typedValue: string
   readonly otherTypedValue: string // for the case when there's no liquidity
 }
-
 const initialState: MintState = {
   independentField: Field.CURRENCY_A,
   typedValue: '',
   otherTypedValue: '',
 }
-
 const reducer = createReducer<MintState>(initialState, (builder) =>
   builder
     .addCase(resetMintState, () => initialState)
