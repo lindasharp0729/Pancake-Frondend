@@ -6,9 +6,7 @@ class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
-
     try {
-      // eslint-disable-next-line no-param-reassign
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
@@ -28,7 +26,6 @@ class MyDocument extends Document {
       sheet.seal()
     }
   }
-
   render() {
     return (
       <Html translate="no">

@@ -10,7 +10,6 @@ const FarmsPage = () => {
   const { account } = useActiveWeb3React()
   const { chosenFarmsMemoized } = useContext(FarmsContext)
   const cakePrice = usePriceCakeUsdc()
-
   return (
     <>
       {chosenFarmsMemoized?.map((farm: FarmWithStakedValue) => (
@@ -26,7 +25,5 @@ const FarmsPage = () => {
     </>
   )
 }
-
 FarmsPage.Layout = FarmsPageLayout
-
 export default FarmsPage
