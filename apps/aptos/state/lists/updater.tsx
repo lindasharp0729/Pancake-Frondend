@@ -9,22 +9,15 @@ import { useListState, initialState, useListStateReady } from './index'
 
 export default function Updater(): null {
   const [listState, dispatch] = useListState()
-
-  // get all loaded lists, and the active urls
   const lists = useAllLists()
   const activeListUrls = useActiveListUrls()
-
   const isReady = useListStateReady()
-
   useEffect(() => {
     if (isReady) {
       dispatch(updateListVersion())
     }
   }, [dispatch, isReady])
-
   const fetchList = useFetchListCallback(dispatch)
-
-  // whenever a list is not loaded and not loading, try again to load it
   useSWRImmutable(isReady && ['first-fetch-token-list', lists], () => {
     Object.keys(lists).forEach((listUrl) => {
       const list = lists[listUrl]
@@ -33,7 +26,6 @@ export default function Updater(): null {
       }
     })
   })
-
   useSWRImmutable(
     isReady && listState !== initialState && ['token-list'],
     async () => {
@@ -48,8 +40,6 @@ export default function Updater(): null {
       refreshInterval: 1000 * 60 * 10,
     },
   )
-
-  // if any lists from unsupported lists are loaded, check them too (in case new updates since last visit)
   useEffect(() => {
     if (isReady) {
       Object.keys(UNSUPPORTED_LIST_URLS).forEach((listUrl) => {
@@ -60,8 +50,6 @@ export default function Updater(): null {
       })
     }
   }, [fetchList, lists, isReady])
-
-  // automatically update lists if versions are minor/patch
   useEffect(() => {
     if (!isReady) return
     Object.keys(lists).forEach((listUrl) => {
