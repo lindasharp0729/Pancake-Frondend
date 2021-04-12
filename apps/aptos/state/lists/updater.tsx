@@ -56,11 +56,9 @@ export default function Updater(): null {
       const list = lists[listUrl]
       if (list.current && list.pendingUpdate) {
         const bump = getVersionUpgrade(list.current.version, list.pendingUpdate.version)
-        // eslint-disable-next-line default-case
         switch (bump) {
           case VersionUpgrade.NONE:
             throw new Error('unexpected no version bump')
-          // update any active or inactive lists
           case VersionUpgrade.PATCH:
           case VersionUpgrade.MINOR:
           case VersionUpgrade.MAJOR:
@@ -69,6 +67,5 @@ export default function Updater(): null {
       }
     })
   }, [dispatch, lists, activeListUrls, isReady])
-
   return null
 }
