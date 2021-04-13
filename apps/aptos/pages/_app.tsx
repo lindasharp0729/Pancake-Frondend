@@ -17,18 +17,13 @@ import { Fragment } from 'react'
 import ListsUpdater from 'state/lists/updater'
 import TransactionUpdater from 'state/transactions/updater'
 import { WrongNetworkModal } from 'components/WrongNetworkModal'
-
-// This config is required for number formatting
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
 })
-
 declare module 'styled-components' {
-  /* eslint-disable @typescript-eslint/no-empty-interface */
   export interface DefaultTheme extends PancakeTheme {}
 }
-
 function Updaters() {
   return (
     <>
@@ -37,11 +32,9 @@ function Updaters() {
     </>
   )
 }
-
 function GlobalHooks() {
   return null
 }
-
 function MyApp(props: AppProps) {
   return (
     <>
@@ -90,10 +83,8 @@ function MyApp(props: AppProps) {
 
 type NextPageWithLayout = NextPage & {
   Layout?: React.FC<React.PropsWithChildren<unknown>>
-  /** render component without all layouts */
   pure?: true
 }
-
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
@@ -102,11 +93,8 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   if (Component.pure) {
     return <Component {...pageProps} />
   }
-
-  // Use the layout defined at the page level, if available
   const Layout = Component.Layout || Fragment
   const ShowMenu = Menu
-
   return (
     <>
       <ShowMenu>
