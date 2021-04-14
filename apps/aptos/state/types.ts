@@ -7,7 +7,6 @@ export enum VaultKey {
   CakeFlexibleSideVault = 'cakeFlexibleSideVault',
   IfoPool = 'ifoPool',
 }
-
 interface CorePoolProps {
   startBlock?: number
   endBlock?: number
@@ -17,7 +16,6 @@ interface CorePoolProps {
   earningTokenPrice?: number
   vaultKey?: VaultKey
 }
-
 export interface DeserializedPool extends DeserializedPoolConfig, CorePoolProps {
   totalStaked?: BigNumber
   stakingLimit?: BigNumber

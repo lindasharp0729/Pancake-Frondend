@@ -9,17 +9,14 @@ const StyledNotFound = styled.div`
   height: calc(100vh - 64px);
   justify-content: center;
 `
-
 const NotSupport = () => {
   const { t } = useTranslation()
-
   return (
     <StyledNotFound>
       <Text mb="16px">{t('Unavailable for legal reasons')}</Text>
     </StyledNotFound>
   )
 }
-
 NotSupport.pure = true
 
 export default NotSupport
