@@ -21,22 +21,16 @@ enum Steps {
   Choose,
   Add,
 }
-
 const MinimalPositionCardContainer = withLPValues(MinimalPositionCard)
-
 const AddLiquidityPage = () => {
   const { t } = useTranslation()
   const [steps, setSteps] = useState(Steps.Choose)
   const native = useNativeCurrency()
   const activeChainId = useActiveChainId()
-
   const defaultCurrencies = useMemo(() => [native.address, CAKE[activeChainId].address], [native, activeChainId])
-
   const currencies = useCurrencySelectRoute(defaultCurrencies)
   const mintPairState = useMintPair(currencies)
-
   const { pair, noLiquidity, pairState } = mintPairState
-
   const addIsUnsupported = useIsTransactionUnsupported(currencies?.currencyA, currencies?.currencyB)
   const addIsWarning = useIsTransactionWarning(currencies?.currencyA, currencies?.currencyB)
 

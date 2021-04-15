@@ -7,10 +7,8 @@ import LiquidityList from 'components/Liquidity/components/LiquidityList'
 import { SettingsButton } from 'components/Menu/Settings/SettingsButton'
 
 const { LiquidityCard, GotoAddLiquidityButton, LiquidityNotConnect } = LiquidityUI
-
 const LiquidityPage = () => {
   const { t } = useTranslation()
-
   return (
     <>
       <PageMeta title={t('Liquidity')} />
@@ -32,7 +30,5 @@ const LiquidityPage = () => {
     </>
   )
 }
-
 LiquidityPage.Layout = ExchangeLayout
-
 export default LiquidityPage
