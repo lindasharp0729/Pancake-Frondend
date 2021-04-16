@@ -4,7 +4,6 @@ import { LanguageProvider } from '@pancakeswap/localization'
 import { AwgmiConfig } from '@pancakeswap/awgmi'
 import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from 'next-themes'
 import { client } from '../client'
-
 const StyledUIKitProvider: React.FC<React.PropsWithChildren> = ({ children, ...props }) => {
   const { resolvedTheme } = useNextTheme()
   return (
@@ -13,7 +12,6 @@ const StyledUIKitProvider: React.FC<React.PropsWithChildren> = ({ children, ...p
     </UIKitProvider>
   )
 }
-
 const Providers: React.FC<React.PropsWithChildren<{ children: React.ReactNode }>> = ({ children }) => {
   return (
     <AwgmiConfig client={client}>
@@ -29,5 +27,4 @@ const Providers: React.FC<React.PropsWithChildren<{ children: React.ReactNode }>
     </AwgmiConfig>
   )
 }
-
 export default Providers

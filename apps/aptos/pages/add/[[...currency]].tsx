@@ -70,7 +70,5 @@ const AddLiquidityPage = () => {
     </>
   )
 }
-
 AddLiquidityPage.Layout = ExchangeLayout
-
 export default AddLiquidityPage
