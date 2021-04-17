@@ -12,10 +12,8 @@ const evmChains = [
   { id: 56, name: 'BNB Smart Chain', chainName: 'bsc' },
   { id: 1, name: 'Ethereum', chainName: 'eth' },
 ]
-
 const NetworkSelect = () => {
   const { t } = useTranslation()
-
   return (
     <>
       <Box px="16px" py="8px">
@@ -45,14 +43,10 @@ const NetworkSelect = () => {
     </>
   )
 }
-
 export const NetworkSwitcher = () => {
   const network = useNetwork() || defaultChain
-
   const { chain = defaultChain } = network
-
   const isMounted = useIsMounted()
-
   return (
     <UserMenu
       mr="8px"
