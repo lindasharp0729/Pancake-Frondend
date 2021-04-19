@@ -9,7 +9,6 @@ const withShownApr = (AprComp) => (props) => {
     shouldShowBlockCountdown: false,
     hasPoolStarted: false,
   }
-
   return (
     <AprComp
       {...props}
@@ -19,5 +18,4 @@ const withShownApr = (AprComp) => (props) => {
     />
   )
 }
-
 export default withShownApr(Pool.Apr<Coin>)

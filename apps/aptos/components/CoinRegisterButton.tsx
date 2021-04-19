@@ -15,7 +15,6 @@ export function CoinRegisterButton({ currency }: { currency: Currency }) {
   const { sendTransactionAsync, isLoading } = useSendTransaction()
   const { fetchWithCatchTxError, loading } = useCatchTxError()
   const { toastSuccess } = useToast()
-
   return (
     <>
       <div ref={targetRef}>
