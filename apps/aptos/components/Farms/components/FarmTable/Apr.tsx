@@ -4,7 +4,6 @@ import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Skeleton } from '@pancakeswap/uikit'
 import ApyButton from '../FarmCard/ApyButton'
-
 export interface AprProps {
   value: string
   multiplier: string
@@ -21,12 +20,10 @@ export interface AprProps {
   hideButton?: boolean
   useTooltipText?: boolean
 }
-
 const Container = styled.div`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.text};
-
   button {
     width: 20px;
     height: 20px;
@@ -38,12 +35,10 @@ const Container = styled.div`
     }
   }
 `
-
 const AprWrapper = styled.div`
   min-width: 60px;
   text-align: left;
 `
-
 const Apr: React.FC<React.PropsWithChildren<AprProps>> = ({
   value,
   pid,
