@@ -15,7 +15,6 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
 }) => {
   const { data: userInfo } = useFarmUserInfoCache(String(pid))
   const stakedBalance = userInfo?.amount ? new BigNumber(userInfo.amount) : BIG_ZERO
-
   return (
     <FarmTokenInfo
       pid={pid}
@@ -29,5 +28,4 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
     </FarmTokenInfo>
   )
 }
-
 export default Farm

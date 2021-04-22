@@ -9,14 +9,12 @@ import { FARM_DEFAULT_DECIMALS } from 'components/Farms/constants'
 import { FarmWithStakedValue } from '@pancakeswap/farms'
 import { getDisplayApr } from '../getDisplayApr'
 import Row, { RowProps } from './Row'
-
 export interface ITableProps {
   farms: FarmWithStakedValue[]
   userDataReady: boolean
   cakePrice: BigNumber
   sortColumn?: string
 }
-
 const Container = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.card.background};
