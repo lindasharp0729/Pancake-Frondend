@@ -22,7 +22,6 @@ const Container = styled.div`
   margin: 16px 0px;
   border: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
-
 const TableWrapper = styled.div`
   overflow: visible;
   scroll-margin-top: 64px;
@@ -31,7 +30,6 @@ const TableWrapper = styled.div`
     display: none;
   }
 `
-
 const StyledTable = styled.table`
   border-collapse: collapse;
   font-size: 14px;
@@ -39,7 +37,6 @@ const StyledTable = styled.table`
   margin-right: auto;
   width: 100%;
 `
-
 const TableBody = styled.tbody`
   & tr {
     td {
@@ -60,7 +57,6 @@ const TableBody = styled.tbody`
 const TableContainer = styled.div`
   position: relative;
 `
-
 const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cakePrice, userDataReady }) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null)
   const { query } = useRouter()
@@ -95,7 +91,6 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
     const earnings = new BigNumber(farm?.userData?.earnings)
     return getBalanceNumber(earnings, FARM_DEFAULT_DECIMALS)
   }
-
   const generateRow = (farm) => {
     const { token, quoteToken } = farm
     const tokenAddress = token?.address
@@ -178,5 +173,4 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
     </Container>
   )
 }
-
 export default FarmTable
