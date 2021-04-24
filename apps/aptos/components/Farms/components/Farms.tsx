@@ -32,7 +32,6 @@ import { getFarmApr } from 'utils/farmApr'
 import type { DeserializedFarm } from '@pancakeswap/farms'
 import { FarmWithStakedValue, filterFarmsByQuery } from '@pancakeswap/farms'
 import Table from './FarmTable/FarmTable'
-
 const ControlContainer = styled.div`
   display: flex;
   width: 100%;
@@ -127,9 +126,7 @@ const StyledImage = styled(Image)`
   margin-right: auto;
   margin-top: 58px;
 `
-
 const NUMBER_OF_FARMS_VISIBLE = 12
-
 const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation()
   const cakePrice = usePriceCakeUsdc()
@@ -139,7 +136,6 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [numberOfFarmsVisible, setNumberOfFarmsVisible] = useState(NUMBER_OF_FARMS_VISIBLE)
   const { data: farmsLP, userDataLoaded, poolLength, regularCakePerBlock } = useFarms()
   const lpRewardsAprs = useLpRewardsAprs()
-
   const [_query, setQuery] = useState('')
   const normalizedUrlSearch = useMemo(() => (typeof urlQuery?.search === 'string' ? urlQuery.search : ''), [urlQuery])
   const query = normalizedUrlSearch && !_query ? normalizedUrlSearch : _query
@@ -152,10 +148,6 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const isArchived = pathname.includes('archived')
   const isInactive = pathname.includes('history')
   const isActive = !isInactive && !isArchived
-
-  // Users with no wallet connected should see 0 as Earned amount
-  // Connected users should see loading indicator until first userData has loaded
-  const userDataReady = !account || (!!account && userDataLoaded)
 
   const activeFarms = farmsLP?.filter(
     (farm) => farm.pid !== 0 && farm.multiplier !== '0X' && (!poolLength || poolLength > farm.pid),
