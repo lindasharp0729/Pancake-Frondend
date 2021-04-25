@@ -15,9 +15,7 @@ import { FarmWithStakedValue } from '@pancakeswap/farms'
 import Apr, { AprProps } from '../Apr'
 import { HarvestAction, HarvestActionContainer } from './HarvestAction'
 import StakedAction, { StakedContainer } from './StakedAction'
-
 const { Multiplier, Liquidity } = FarmUI.FarmTable
-
 export interface ActionPanelProps {
   apr: AprProps
   multiplier: FarmTableMultiplierProps
@@ -27,7 +25,6 @@ export interface ActionPanelProps {
   expanded: boolean
   alignLinksToRight?: boolean
 }
-
 const expandAnimation = keyframes`
   from {
     max-height: 0px;
@@ -36,7 +33,6 @@ const expandAnimation = keyframes`
     max-height: 700px;
   }
 `
-
 const collapseAnimation = keyframes`
   from {
     max-height: 700px;
