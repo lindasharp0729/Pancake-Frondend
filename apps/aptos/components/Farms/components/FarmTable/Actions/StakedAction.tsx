@@ -18,7 +18,6 @@ import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { FarmWithStakedValue } from '@pancakeswap/farms'
 import useStakeFarms from '../../../hooks/useStakeFarms'
 import useUnstakeFarms from '../../../hooks/useUnstakeFarms'
-
 interface StackedActionProps extends FarmWithStakedValue {
   userDataReady: boolean
   lpLabel?: string
@@ -26,17 +25,14 @@ interface StackedActionProps extends FarmWithStakedValue {
   onStake: (value: string) => Promise<TransactionResponse>
   onUnstake: (value: string) => Promise<TransactionResponse>
 }
-
 export function useStakedActions(tokenType) {
   const { onStake } = useStakeFarms(tokenType)
   const { onUnstake } = useUnstakeFarms(tokenType)
-
   return {
     onStake,
     onUnstake,
   }
 }
-
 export const StakedContainer = ({ children, ...props }) => {
   const { onStake, onUnstake } = useStakedActions(props.lpAddress)
   const { account } = useActiveWeb3React()

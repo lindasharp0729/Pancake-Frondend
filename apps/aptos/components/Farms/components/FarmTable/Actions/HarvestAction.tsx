@@ -17,13 +17,10 @@ interface HarvestActionProps extends FarmWithStakedValue {
   userDataReady: boolean
   onReward: () => Promise<TransactionResponse>
 }
-
 export const HarvestActionContainer = ({ children, ...props }) => {
   const { onReward } = useHarvestFarm(props.lpAddress)
-
   return children({ ...props, onReward })
 }
-
 export const HarvestAction: React.FunctionComponent<React.PropsWithChildren<HarvestActionProps>> = ({
   userData,
   userDataReady,
