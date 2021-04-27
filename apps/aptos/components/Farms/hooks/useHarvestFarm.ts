@@ -12,5 +12,4 @@ const useHarvestFarm = (tokenType: string) => {
 
   return { onReward: handleHarvest }
 }
-
 export default useHarvestFarm

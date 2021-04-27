@@ -15,8 +15,6 @@ const useStakeFarms = (tokenType: string) => {
     },
     [tokenType, executeTransaction],
   )
-
   return { onStake: handleStake }
 }
-
 export default useStakeFarms
