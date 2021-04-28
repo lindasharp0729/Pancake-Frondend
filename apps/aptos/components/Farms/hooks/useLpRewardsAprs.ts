@@ -1,12 +1,9 @@
 import useSWRImmutable from 'swr/immutable'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
-
 const GITHUB_ENDPOINT =
   'https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/apps/aptos/config/constants/lpAprs'
-
 const useLpRewardsAprs = () => {
   const { chainId } = useActiveWeb3React()
-
   const { data: lpRewardsAprs } = useSWRImmutable(chainId ? ['aptosLpAprs', chainId] : null, async () => {
     const response = await fetch(`${GITHUB_ENDPOINT}/${chainId}.json`)
 
@@ -18,11 +15,9 @@ const useLpRewardsAprs = () => {
     if (importLocalLpAprsData) {
       return importLocalLpAprsData
     }
-
     return {}
   })
 
   return lpRewardsAprs ?? {}
 }
-
 export default useLpRewardsAprs
