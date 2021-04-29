@@ -5,7 +5,6 @@ import cakePoolRelatedQueries from 'components/Pools/utils/cakePoolRelatedQuerie
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useCallback } from 'react'
 import CollectModalContainer from './CollectModalContainer'
-
 const CakeCollectModal = ({ earningTokenAddress = '', ...rest }: React.PropsWithChildren<Pool.CollectModalProps>) => {
   const { onReward } = useHarvestFarm(earningTokenAddress)
   const queryClient = useQueryClient()
@@ -16,8 +15,6 @@ const CakeCollectModal = ({ earningTokenAddress = '', ...rest }: React.PropsWith
       predicate: cakePoolRelatedQueries(account),
     })
   }, [account, queryClient])
-
   return <CollectModalContainer {...rest} onDone={onDone} onReward={onReward} />
 }
-
 export default CakeCollectModal
