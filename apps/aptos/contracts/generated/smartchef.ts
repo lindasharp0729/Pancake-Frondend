@@ -1,12 +1,8 @@
 /* eslint-disable camelcase */
 import { Types } from 'aptos'
-
 export const ADDRESS = '0xfd1d8a523f1be89277ac0787ae3469312667e3d0b3f75a5f01bfc95530a2dc91' as const
-
 export const SMART_CHEF_MODULE_NAME = 'smart_chef' as const
-
 export type SmartChefAddRewardArgs = [bigint | string]
-
 export const smartChefAddReward = (
   args: SmartChefAddRewardArgs,
   typeArgs: [string, string, string],
@@ -18,7 +14,6 @@ export const smartChefAddReward = (
     function: `${ADDRESS}::${SMART_CHEF_MODULE_NAME}::add_reward`,
   }
 }
-
 export type SmartChefCreatePoolArgs = [
   bigint | string,
   bigint | string,
